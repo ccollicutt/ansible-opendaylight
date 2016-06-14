@@ -1,0 +1,7 @@
+---
+
+- include: odl-user.yml
+- include: configure-opendaylight.yml
+- include: install-opendaylight.yml
+- include: karaf-features.yml
+- include: service-opendaylight.yml

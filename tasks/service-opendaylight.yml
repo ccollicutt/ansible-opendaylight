@@ -1,0 +1,15 @@
+---
+
+- name: ensure opendaylight service is running and enabled
+  service:
+    name: "odl"
+    state: "running"
+    enabled: True
+  register: opendaylight_service
+
+- name: wait for opendaylight to become available on port 8080
+  wait_for: 
+    port: "8080"
+    delay: "10"
+  when: opendaylight_service | changed
+

@@ -1,0 +1,23 @@
+---
+
+opendaylight_user: "odl"
+
+opendaylight_directory: "/opt/odl"
+
+packages:
+  - openjdk-7-jdk
+
+opendaylight_package_url: "https://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/distribution-karaf/0.4.2-Beryllium-SR2/"
+opendaylight_package_file: "distribution-karaf-0.4.2-Beryllium-SR2.tar.gz"
+opendaylight_package_checksum: "sha256:489a330dfe3841b935ff6d2a20247954db33b49b562da128665048b96379b561"
+
+opendaylight_karaf_features:
+  - odl-base-all 
+  - odl-aaa-authn 
+  - odl-restconf 
+  - odl-nsf-all 
+  - odl-adsal-northbound 
+  - odl-mdsal-apidocs 
+  - odl-ovsdb-openstack 
+  - odl-ovsdb-northbound 
+  - odl-dlux-core

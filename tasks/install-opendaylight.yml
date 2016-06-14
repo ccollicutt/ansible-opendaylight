@@ -1,0 +1,32 @@
+---
+
+- name: ensure required packages are installed
+  apt:
+    name: "{{ item }}"
+    update_cache: True
+    cache_valid_time: 3600
+  with_items: "{{ packages }}"
+
+- name: download the opendaylight install tar file
+  get_url:
+    url: "{{ opendaylight_package_url }}{{ opendaylight_package_file }}"
+    dest: "/opt/{{ opendaylight_package_file }}"
+    checksum: "{{ opendaylight_package_checksum }}"
+
+- name: ensure {{ opendaylight_directory }} exists
+  file:
+    path: "{{ opendaylight_directory }}"
+    state: "directory"
+    owner: "{{ opendaylight_user }}"
+    group: "{{ opendaylight_user }}"
+
+# unarchive doesn't seem to be able to strip the first directory
+- name: untar the opendaylight install file
+  shell: tar -zxf /opt/{{ opendaylight_package_file }} --strip 1
+  become: True
+  become_user: "{{ opendaylight_user }}" 
+  args:
+    creates: "{{ opendaylight_directory }}/bin"
+    chdir: "{{ opendaylight_directory }}"
+
+

@@ -1,0 +1,6 @@
+---
+
+- name: ensure odl user exists
+  user:
+    name: "{{ opendaylight_user }}"
+    home: "{{ opendaylight_directory }}"

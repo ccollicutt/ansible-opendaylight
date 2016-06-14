@@ -1,0 +1,17 @@
+---
+
+- name: stop odl
+  service: 
+    name: "odl"
+    state: "stopped"
+
+- name: cleanup karaf
+  file:
+    path: "{{ opendaylight_directory }}/data"
+    state: "absent"
+
+- name: start odl
+  service:
+    name: "odl"
+    state: "started"
+

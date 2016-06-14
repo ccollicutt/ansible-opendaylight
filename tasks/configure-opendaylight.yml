@@ -1,0 +1,16 @@
+---
+
+- name: install an init file for opendaylight
+  template:
+    src: "etc/init/odl.conf"
+    dest: "/etc/init/odl.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
+- name: install /etc/default/odl from template
+  template:
+    src: "etc/default/odl"
+    dest: "/etc/default/odl"
+    
+

@@ -1,0 +1,11 @@
+---
+
+- name: configure karaf features 
+  lineinfile:
+    dest: "{{ opendaylight_directory }}/etc/org.apache.karaf.features.cfg"
+    regexp: "^featuresBoot="
+    line: "featuresBoot={{ opendaylight_karaf_features | join(',') }}"
+  notify:
+    - stop odl 
+    - cleanup karaf
+    - start odl 
