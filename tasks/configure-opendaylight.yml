@@ -7,6 +7,20 @@
     owner: "root"
     group: "root"
     mode: "0644"
+  when: ansible_distribution_release == "trusty"
+
+- name: install a systemd service file for opendaylight
+  template:
+    src: "etc/systemd/system/odl.service"
+    dest: "/etc/systemd/system/odl.service"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  when: ansible_distribution_release == "xenial"
+  notify:
+    - systemctl daemon-reload
+
+
 
 - name: install /etc/default/odl from template
   template:

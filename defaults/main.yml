@@ -4,13 +4,16 @@ opendaylight_user: "odl"
 
 opendaylight_directory: "/opt/odl"
 
-packages:
-  - openjdk-7-jdk
+xenial_java_package_version: "openjdk-8-jdk"
+trusty_java_package_version: "openjdk-7-jdk"
 
-opendaylight_package_url: "https://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/distribution-karaf/0.4.2-Beryllium-SR2/"
-opendaylight_package_file: "distribution-karaf-0.4.2-Beryllium-SR2.tar.gz"
-opendaylight_package_checksum: "sha256:489a330dfe3841b935ff6d2a20247954db33b49b562da128665048b96379b561"
+# NOTE: End with /
+opendaylight_package_url: "https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distribution-karaf/0.5.1-Boron-SR1/"
+opendaylight_package_file: "distribution-karaf-0.5.1-Boron-SR1.tar.gz"
+opendaylight_package_checksum: "sha256:c4ed8cf493e0b24d1ff67644adb65a4bf436490ff55787d6ec4a72b9e22c72bd"
 
+
+# NOTE: odl-l2switch-switch, odl-dlux-node, and odl-dlux-yangui are optional but I'm including them
 opendaylight_karaf_features:
   - odl-base-all 
   - odl-aaa-authn 
@@ -21,3 +24,7 @@ opendaylight_karaf_features:
   - odl-ovsdb-openstack 
   - odl-ovsdb-northbound 
   - odl-dlux-core
+  - odl-dlux-all
+  - odl-l2switch-switch
+  #- odl-dlux-node
+  #- odl-dlux-yangui

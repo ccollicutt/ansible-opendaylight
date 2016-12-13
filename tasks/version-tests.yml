@@ -1,0 +1,8 @@
+---
+
+- name: fail when os distribution is trusty but opendaylight distribution is boron
+  fail:
+    msg: "openjdk-8 is not available in trusty and boron requires it"
+  when: ansible_distribution_release == "xenial" and "Boron" not in opendaylight_package_file
+
+

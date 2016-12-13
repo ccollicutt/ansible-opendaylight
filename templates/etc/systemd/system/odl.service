@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenDaylight SDN Controller
+Documentation=https://wiki.opendaylight.org/view/Main_Page http://www.opendaylight.org/
+After=network.service
+
+[Service]
+EnvironmentFile=/etc/default/odl
+Type=forking
+ExecStart={{ opendaylight_directory }}/bin/start
+User=odl
+Group=odl
+
+[Install]
+WantedBy=multi-user.target

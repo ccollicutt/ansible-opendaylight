@@ -1,11 +1,10 @@
 ---
 
-- name: ensure required packages are installed
+- name: ensure required java package is installed
   apt:
-    name: "{{ item }}"
+    name: "{{ java_package_version }}"
     update_cache: True
     cache_valid_time: 3600
-  with_items: "{{ packages }}"
 
 - name: download the opendaylight install tar file
   get_url:

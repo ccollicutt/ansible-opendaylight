@@ -1,0 +1,13 @@
+---
+
+- name: set trusty java package version
+  set_fact:
+    java_package_version: "{{ trusty_java_package_version }}"
+    java_default_home: "/usr/lib/jvm/java-7-openjdk-amd64"
+  when: ansible_distribution_release == "trusty"
+
+- name: set xenial java package version
+  set_fact:
+    java_package_version: "{{ xenial_java_package_version }}"
+    java_default_home: "/usr/lib/jvm/java-8-openjdk-amd64"
+  when: ansible_distribution_release == "xenial"

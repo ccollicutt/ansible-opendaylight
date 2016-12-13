@@ -1,5 +1,7 @@
 ---
 
+- include: version-tests.yml
+- include: set-java-version.yml
 - include: odl-user.yml
 - include: configure-opendaylight.yml
 - include: install-opendaylight.yml
